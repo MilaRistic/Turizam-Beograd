@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"><!--postavljanje karaktera na UTF-8, što omogućava ispravno prikazivanje teksta na različitim jezicima, uključujući srpski.-->
+    <title>Turizam Beograd</title><!--naslov stranice koji se prikazuje u tabu pretraživača-->
+    <style>
+      @import "node_modules/ol/ol.css";
+    </style>
+    <style>
+      html, body, #map-container { 
+        margin: 0; 
+        height: 100%; 
+        width: 100%;  
+        font-family: sans-serif;  
+      }
+    </style>
+  </head>
+<body>
+  <!-- Dugmad za izbor sloja -->
+  <div id="controls" style="position: absolute; top: 10px; left: 10px; z-index: 1000;">
+    <button id="osm-btn">OSM</button>
+    <button id="geo-btn">GeoTIFF</button>
+  </div>
+
+  <!-- Kontejner za mapu -->
+  <div id="map-container"></div>
+
+  <!-- Legenda -->
+  <div id="legend" style="
+      position: absolute;
+      bottom: 20px;              
+      left: 10px;
+      background: rgba(255,255,255,0.9);
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      z-index: 1000;
+  ">
+    <b>Legenda:</b>
+    <div>
+      <span style="display:inline-block;width:12px;height:12px;background:#1e3e9f;margin-right:5px;"></span>
+      Turistička lokacija
+    </div>
+    <div>
+      <span style="display:inline-block;width:12px;height:12px;background:rgba(30,62,159,0.25);border:2px solid #1e3e9f;margin-right:5px;"></span>
+      Krug za crtanje
+    </div>
+    <div>GeoTIFF sloj – satelitska podloga</div>
+  </div>
+
+  <!-- Glavni JS fajl -->
+  <script src="./main.js" type="module"></script>
+
+  <!-- Centrirana razmera -->
+  <style>
+    .ol-scale-line {
+      left: 50% !important;         /* pomeranje na sredinu horizontalno */
+      bottom: 10px !important;      /* odmak od dna */
+      transform: translateX(-50%);  /* centriranje tačno */
+      z-index: 1010 !important;     /* iznad legende */
+    }
+  </style>
+</body>
+</html>
